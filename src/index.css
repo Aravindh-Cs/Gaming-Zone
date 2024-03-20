@@ -1,0 +1,32 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    overflow: hidden;
+}
+body
+{
+    position: relative;
+}
+.main 
+{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(81, 179, 179);
+    height: 100vh;
+    align-items: center;
+}
+.hide 
+{
+    display: none;
+}
+.display
+{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+}
