@@ -22,18 +22,29 @@ const option = (props) => {
       reader.readAsDataURL(file)
      }
   }
+  const deleteaccount = () =>
+   {
+    console.log('deleted');
+    localStorage.setItem('image','');
+    localStorage.setItem('name','');
+    localStorage.setItem('email','');
+    localStorage.setItem('age','');
+    localStorage.setItem('phone','');
+    window.location.reload();
+   }  
   return (
     <>
       <div className="show">
         <ul className='ul'>
             <li><p>Profile:</p>
-            <div className="edit"><input type="file" onChange={handleEdit} accept='image/*'/><img src={Camera} alt="" /></div>
+            <div className="edit"><img src={Camera} alt="" /><input type="file" onChange={handleEdit} accept='image/*'/></div>
             </li>
             <li><p>Name:</p>{props.name}</li>
             <li><p>Email:</p>{props.email}</li>
             <li><p>Mobile:</p>{props.phone}</li>
             <li><p>Age:</p>{props.age}</li>
         </ul>
+        <button onClick={deleteaccount}>Delete Account</button>
       </div>
       </>
   )

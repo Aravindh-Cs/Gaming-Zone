@@ -18,15 +18,3 @@ body
     height: 100vh;
     align-items: center;
 }
-.hide 
-{
-    display: none;
-}
-.display
-{
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    top: 0%;
-}

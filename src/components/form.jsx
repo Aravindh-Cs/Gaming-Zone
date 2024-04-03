@@ -4,7 +4,7 @@ import Profilepic from '../images/profile-pic.png';
 import { useState} from 'react';
 import './style.css'
 
-const form = ({imageSrc,Name,Email,Phone,Age}) => {
+const form = () => {
   const [usname,setuserName] = useState();
   const [email,setemail] = useState();
   const [age,setage] = useState();
@@ -13,17 +13,18 @@ const form = ({imageSrc,Name,Email,Phone,Age}) => {
   const [storeImg,setstoreImg] = useState(Profilepic);
   const [check,setcheck] = useState(false);
   const [active,setactive] = useState(false);
-  const [disable,setdisableed] = useState(false)
+ 
 
   const handleUpload = (e) =>
   {
     e.preventDefault();
-    Name(usname);
-    Email(email);
-    Phone(phone);
-    Age(age);
     setactive(true);
-    console.log('clicked')
+    localStorage.getItem('image',storeImg);
+    localStorage.getItem('name',usname);
+    localStorage.getItem('email',email);
+    localStorage.getItem('age',age);
+    localStorage.getItem('phone',phone);
+    window.location.reload();
   }
   const handlename = (e) =>
   {
@@ -65,7 +66,7 @@ console.log('working')
   }
   useEffect(()=>
   {
-    if(!usname || !age || !email || !phone || !check)
+    if(!usname || !age || !email || !phone || !check || !storeImg)
     {
      setdisable(true);
     }
@@ -92,7 +93,7 @@ const getImg =(e)=>
   }
   return (
 <>
-    <div className={active===true?'hide':'form'}>
+    <div className={active?'hide':'form'}>
 
       <form onSubmit={handleUpload}>
 
